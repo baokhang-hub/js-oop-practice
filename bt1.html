@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Animal {
+        constructor(nameInp, soundInp) {
+            this.name = nameInp;
+            this.sound = soundInp;
+        }
+
+        makeSound() {
+            document.writeln(`Con ${this.name} nó kêu ${this.sound}`);
+        }
+    }
+
+    let animal1 = new Animal("chó", "gâu");
+    let animal2 = new Animal("mèo", "meo");
+    let animal3 = new Animal("bò", "ụm bòoo");
+
+        animal1.makeSound();
+        animal2.makeSound();
+        animal3.makeSound();
+</script>
+</body>
+</html>
