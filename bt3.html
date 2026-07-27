@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank Account Test</title>
+</head>
+<body>
+<script>
+    class BankAccount {
+        constructor(owner, balance) {
+            this.owner = owner;
+            if (balance > 0) {
+                this.balance = balance;
+            } else {
+                this.balance = 0;
+            }
+        }
+
+        // Nhận amount trực tiếp từ tham số
+        deposit(amount) {
+            if (amount > 0) {
+                this.balance += amount;
+                console.log(`Đã nạp ${amount} thành công!`);
+            } else {
+                console.log("Số tiền nạp vào không hợp lệ!");
+            }
+        }
+
+        // Nhận amount trực tiếp từ tham số
+        withdraw(amount) {
+            if (amount > 0 && amount <= this.balance) {
+                this.balance -= amount;
+                console.log(`Đã rút ${amount} thành công!`);
+            } else {
+                console.log("Số tiền rút không hợp lệ hoặc vượt quá số dư!");
+            }
+        }
+
+        getBalance() {
+            return this.balance;
+        }
+    }
+
+    // --- KỊCH BẢN TEST THEO YÊU CẦU ĐỀ BÀI ---
+
+    // 1. Tạo 1 đối tượng với số dư ban đầu 1000
+    let acc1 = new BankAccount("Khang", 1000);
+    console.log("Số dư ban đầu:", acc1.getBalance());
+
+    // 2. Thử nạp tiền hợp lệ (nạp 500)
+    acc1.deposit(500);
+
+    // 3. Thử rút vượt quá số dư (rút 5000 -> phải bị chặn)
+    acc1.withdraw(5000);
+
+    // 4. Rút hợp lệ (rút 300)
+    acc1.withdraw(300);
+
+    // 5. In số dư cuối cùng (Dự kiến: 1000 + 500 - 300 = 1200)
+    console.log("Số dư cuối cùng:", acc1.getBalance());
+</script>
+</body>
+</html>
